@@ -3,10 +3,10 @@ export const navLinks = [
   { label: "회사소개", href: "/about" },
   { label: "서비스", href: "/services" },
   { label: "포트폴리오", href: "/portfolio" },
+  { label: "무료 전자책", href: "/ebook" },
 ];
 
 export const heroStats = [
-  { value: "312+", label: "파트너 병원" },
   { value: "15년", label: "업계 경력" },
   { value: "98%", label: "고객 유지율" },
   { value: "100%", label: "의료광고 심의 준수" },
@@ -292,4 +292,34 @@ export const contactInfo = {
   email: "contact@histart.co.kr",
   address: "서울특별시 강남구 테헤란로 123, 하이스타트타워 8층",
   hours: "평일 09:00 – 18:00 (주말 · 공휴일 휴무)",
+  // TODO: 실제 카카오톡 채널 URL로 교체해주세요 (pf.kakao.com/_실제채널ID)
+  kakaoChannelUrl: "https://pf.kakao.com/_xxxxxxx",
 };
+
+export const ebookStats = [
+  { value: "26일", label: "대표 키워드 첫 페이지 노출" },
+  { value: "2배", label: "전월 대비 매출 성장" },
+  { value: "7명+", label: "하루 평균 신환 문의" },
+];
+
+export const ebookChapters = [
+  "무자본 병원 마케팅 시작",
+  "스마트 플레이스 마케팅의 모든 것",
+  "마케팅의 핵심, 영수증 리뷰",
+  "네이버 연동 서비스 활용하기",
+  "블로그 마케팅 시작의 모든 것",
+  "홈페이지 만들기",
+  "인스타그램 마케팅",
+  "파워링크 광고",
+  "나만의 병원 시스템 만들기",
+  "우리 조직에 맞는 직원 찾기",
+  "직원을 용모 단정하게 유지하는 방법",
+  "차별화된 병원 만들기",
+  "리뷰 이벤트",
+];
+
+export const ebookAudience = [
+  "광고비 없이 신규 개원 초반을 버텨야 하는 원장님",
+  "대행사 없이 스마트플레이스·블로그를 직접 운영하고 싶은 실장님",
+  "네이버 마케팅을 처음부터 체계적으로 배우고 싶은 마케팅 담당자",
+];

@@ -6,7 +6,6 @@ import CtaBanner from "@/components/CtaBanner";
 import Icon from "@/components/Icon";
 import ProcessSteps from "@/components/ProcessSteps";
 import { LogoMark } from "@/components/Logo";
-import SmoothScrollHero from "@/components/ui/smooth-scroll-hero";
 import {
   founder,
   heroStats,
@@ -23,53 +22,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero — scroll-driven clip reveal on desktop; simple static hero on mobile */}
+      {/* Hero — static video hero (same on all breakpoints) */}
       <section className="relative bg-graphite-950">
-        {/* Desktop / tablet: scroll-clip reveal hero */}
-        <div className="hidden md:block">
-          <SmoothScrollHero
-            scrollHeight={800}
-            videoSrc="/hero-video.mp4"
-            desktopImage="https://images.unsplash.com/photo-1511884642898-4c92249e20b6"
-            mobileImage="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=2412&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            initialClipPercentage={25}
-            finalClipPercentage={75}
-          >
-            <div className="flex h-full w-full items-center">
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-r from-graphite-950 via-graphite-950/60 to-graphite-950/10"
-                aria-hidden="true"
-              />
-              <div className="container-page relative">
-                <SectionEyebrow tone="dark">
-                  병원 마케팅 전문 파트너 · 하이스타트
-                </SectionEyebrow>
-                <h1 className="mt-8 max-w-3xl font-extrabold text-4xl leading-[1.25] text-white md:text-6xl">
-                  높은 시작이
-                  <br />
-                  <span className="text-blue-300">확실한 성장</span>을 증명합니다
-                </h1>
-                <p className="mt-8 max-w-xl text-base leading-relaxed text-ink-300 md:text-lg">
-                  312개 병원의 데이터로 검증한 전략과 실행으로, 캠페인 첫 달부터
-                  신환 문의 곡선을 바꿉니다.
-                </p>
-                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                  <Button href="/contact" variant="primary" withArrow>
-                    무료 마케팅 진단 신청
-                  </Button>
-                  <Button href="/portfolio" variant="outline-light">
-                    성공사례 보기
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </SmoothScrollHero>
-        </div>
-
-        {/* Mobile: static hero, no scroll-driven clip effect */}
-        <div className="relative overflow-hidden md:hidden">
+        <div className="relative overflow-hidden">
           <video
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-[65%_center] md:object-center"
             autoPlay
             muted
             loop
@@ -79,23 +36,23 @@ export default function Home() {
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-graphite-950/85 via-graphite-950/75 to-graphite-950"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-graphite-950/85 via-graphite-950/75 to-graphite-950 md:bg-gradient-to-r md:from-graphite-950 md:via-graphite-950/70 md:to-graphite-950/20"
             aria-hidden="true"
           />
-          <div className="container-page relative py-20">
+          <div className="container-page relative py-20 md:py-32">
             <SectionEyebrow tone="dark">
               병원 마케팅 전문 파트너 · 하이스타트
             </SectionEyebrow>
-            <h1 className="mt-8 font-extrabold text-4xl leading-[1.25] text-white">
+            <h1 className="mt-8 max-w-3xl font-extrabold text-4xl leading-[1.25] text-white md:text-6xl">
               높은 시작이
               <br />
               <span className="text-blue-300">확실한 성장</span>을 증명합니다
             </h1>
-            <p className="mt-8 text-base leading-relaxed text-ink-300">
-              312개 병원의 데이터로 검증한 전략과 실행으로, 캠페인 첫 달부터
-              신환 문의 곡선을 바꿉니다.
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-ink-300 md:text-lg">
+              데이터로 검증한 전략과 실행으로, 캠페인 첫 달부터 신환 문의
+              곡선을 바꿉니다.
             </p>
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button href="/contact" variant="primary" withArrow>
                 무료 마케팅 진단 신청
               </Button>
@@ -107,7 +64,7 @@ export default function Home() {
         </div>
 
         <div className="relative border-t border-white/10">
-          <div className="container-page grid grid-cols-2 gap-8 py-10 md:grid-cols-4">
+          <div className="container-page grid grid-cols-3 gap-4 py-10 sm:gap-8">
             {heroStats.map((stat) => (
               <div key={stat.label}>
                 <p className="font-extrabold text-3xl text-blue-300 md:text-4xl">
@@ -152,7 +109,7 @@ export default function Home() {
             {specialties.map((item) => (
               <li
                 key={item}
-                className="rounded-full border border-line bg-white px-4 py-2 text-sm text-ink-700"
+                className="cursor-default rounded-full border border-line bg-white px-4 py-2 text-sm text-ink-700 transition-colors hover:border-blue-500 hover:bg-blue-500 hover:text-white"
               >
                 {item}
               </li>
@@ -180,7 +137,11 @@ export default function Home() {
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             <Link
-              href={`/services#${featuredService.slug}`}
+              href={
+                featuredService.slug === "branding"
+                  ? "/services/branding"
+                  : `/services#${featuredService.slug}`
+              }
               className="group relative overflow-hidden rounded-xl bg-graphite-950 p-10 text-white lg:col-span-2"
             >
               <LogoMark

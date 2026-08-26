@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Check } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import CtaBanner from "@/components/CtaBanner";
@@ -60,6 +61,15 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+                {service.slug === "branding" && (
+                  <Link
+                    href="/services/branding"
+                    className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 hover:text-blue-500"
+                  >
+                    자세히 보기
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </Link>
+                )}
               </div>
             </div>
           ))}
