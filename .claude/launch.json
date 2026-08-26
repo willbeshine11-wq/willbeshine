@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lumedi-dev",
+      "runtimeExecutable": "C:\\Users\\MASTER\\Downloads\\종다리\\dev.bat",
+      "runtimeArgs": [],
+      "port": 3000
+    }
+  ]
+}
