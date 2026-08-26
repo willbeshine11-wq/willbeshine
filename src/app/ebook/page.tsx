@@ -3,6 +3,7 @@ import { BookOpen, Download, TrendingUp } from "lucide-react";
 import Button from "@/components/Button";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import { LogoMark } from "@/components/Logo";
+import CountUp from "@/components/CountUp";
 import { ebookAudience, ebookChapters, ebookStats } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -88,7 +89,7 @@ export default function EbookPage() {
           {ebookStats.map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
               <p className="font-extrabold text-3xl text-blue-600 md:text-4xl">
-                {stat.value}
+                <CountUp value={stat.value} />
               </p>
               <p className="mt-1 text-xs text-ink-500 md:text-sm">
                 {stat.label}
@@ -166,7 +167,7 @@ export default function EbookPage() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href={EBOOK_PDF} variant="primary" withArrow>
+            <Button href={EBOOK_PDF} variant="primary" download>
               <Download className="size-4" aria-hidden="true" />
               무료로 전자책 받기
             </Button>

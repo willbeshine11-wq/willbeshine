@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { portfolioCategories, type PortfolioItem } from "@/lib/data";
+import CountUp from "@/components/CountUp";
 
 export default function PortfolioFilter({
   items,
@@ -78,7 +79,7 @@ export default function PortfolioFilter({
 
             <div className="mt-6 flex items-baseline gap-2 border-t border-line pt-6">
               <span className="font-extrabold text-2xl text-blue-600">
-                {item.metric.value}
+                <CountUp value={item.metric.value} />
               </span>
               <span className="text-xs text-ink-400">{item.metric.label}</span>
             </div>

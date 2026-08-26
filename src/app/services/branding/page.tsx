@@ -13,6 +13,7 @@ import PageHero from "@/components/PageHero";
 import SectionEyebrow from "@/components/SectionEyebrow";
 import CtaBanner from "@/components/CtaBanner";
 import FaqAccordion from "@/components/FaqAccordion";
+import CountUp from "@/components/CountUp";
 import { portfolioItems } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -301,7 +302,7 @@ export default function BrandingServicePage() {
                   <p className="mt-2 text-sm text-ink-500">{item.hospital}</p>
                   <div className="mt-6 flex items-baseline gap-2 border-t border-line pt-6">
                     <span className="font-extrabold text-2xl text-blue-600">
-                      {item.metric.value}
+                      <CountUp value={item.metric.value} />
                     </span>
                     <span className="text-xs text-ink-400">
                       {item.metric.label}

@@ -6,6 +6,7 @@ import CtaBanner from "@/components/CtaBanner";
 import Icon from "@/components/Icon";
 import ProcessSteps from "@/components/ProcessSteps";
 import { LogoMark } from "@/components/Logo";
+import CountUp from "@/components/CountUp";
 import {
   founder,
   heroStats,
@@ -49,8 +50,9 @@ export default function Home() {
               <span className="text-blue-300">확실한 성장</span>을 증명합니다
             </h1>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-ink-300 md:text-lg">
-              데이터로 검증한 전략과 실행으로, 캠페인 첫 달부터 신환 문의
-              곡선을 바꿉니다.
+              다양한 진료과의 데이터로 검증한 전략과 실행으로,
+              <br />
+              캠페인 첫 달부터 신환 문의 곡선을 바꿉니다.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button href="/contact" variant="primary" withArrow>
@@ -68,7 +70,7 @@ export default function Home() {
             {heroStats.map((stat) => (
               <div key={stat.label}>
                 <p className="font-extrabold text-3xl text-blue-300 md:text-4xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </p>
                 <p className="mt-1 text-xs text-ink-400 md:text-sm">
                   {stat.label}
@@ -84,11 +86,11 @@ export default function Home() {
         <div className="container-page flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-center sm:gap-3">
           <Stethoscope className="size-5 shrink-0 text-blue-600" aria-hidden="true" />
           <p className="text-sm text-ink-600">
+            {founder.name} 대표가{" "}
             <span className="font-semibold text-graphite-900">
-              {founder.role.replace("대표 · ", "")} 출신
+              13년간 치과위생사 실장으로
             </span>{" "}
-            {founder.name} 대표가 현장에서 겪은 경험을 캠페인 전략에 그대로
-            반영합니다.
+            현장에서 겪은 경험을 캠페인 전략에 그대로 반영합니다.
           </p>
           <Link
             href="/about"
@@ -199,10 +201,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-graphite-950 group-hover:text-blue-600">
+                    <h4 className="text-base font-semibold text-graphite-950 group-hover:text-blue-600">
                       {service.title}
                     </h4>
-                    <p className="mt-1 text-xs leading-relaxed text-ink-500">
+                    <p className="mt-1 text-sm leading-relaxed text-ink-500">
                       {service.summary}
                     </p>
                   </div>
@@ -255,7 +257,7 @@ export default function Home() {
               >
                 <div className="flex items-center gap-6">
                   <span className="w-24 shrink-0 font-extrabold text-3xl text-blue-600 md:w-28 md:text-4xl">
-                    {item.metric.value}
+                    <CountUp value={item.metric.value} />
                   </span>
                   <div>
                     <span className="text-xs font-medium uppercase tracking-wide text-ink-400">
@@ -290,7 +292,7 @@ export default function Home() {
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             <figure className="flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.03] p-10 lg:col-span-2">
               <Quote className="size-8 text-blue-400" aria-hidden="true" />
-              <blockquote className="mt-6 flex-1 text-xl font-medium leading-relaxed text-white md:text-2xl">
+              <blockquote className="mt-6 flex-1 text-base font-medium leading-relaxed text-white md:text-lg">
                 &ldquo;{featuredQuote.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-8 border-t border-white/10 pt-5 text-sm">
@@ -310,7 +312,7 @@ export default function Home() {
                   className="flex flex-1 flex-col rounded-xl border border-white/10 bg-white/[0.03] p-6"
                 >
                   <Quote className="size-5 text-blue-400" aria-hidden="true" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink-200">
+                  <blockquote className="mt-4 flex-1 text-base font-medium leading-relaxed text-ink-200 md:text-lg">
                     {item.quote}
                   </blockquote>
                   <figcaption className="mt-5 border-t border-white/10 pt-4 text-sm">

@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-graphite-950 text-ink-300">
+    <footer className="border-t border-white/10 bg-graphite-950 text-ink-300">
       <div className="container-page grid gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-1">
           <Link href="/" aria-label="하이스타트 홈으로 이동">

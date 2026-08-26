@@ -6,7 +6,7 @@ type Variant = "primary" | "outline-dark" | "outline-light" | "ghost";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-blue-500 text-graphite-950 hover:bg-blue-400 focus-visible:outline-blue-600",
+    "bg-blue-500 text-white hover:bg-blue-400 focus-visible:outline-blue-600",
   "outline-dark":
     "border border-graphite-800/25 text-graphite-900 hover:border-graphite-800 hover:bg-graphite-900 hover:text-white focus-visible:outline-graphite-800",
   "outline-light":
@@ -33,7 +33,7 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 ${variantClasses[variant]} ${className}`}
       {...rest}
     >
       {children}
