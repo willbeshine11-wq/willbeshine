@@ -49,7 +49,7 @@ export default function EbookPage() {
               공개합니다. 실제 병원 마케팅 현장에서 검증된 방법만 담았습니다.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href={EBOOK_PDF} variant="primary" download>
+              <Button href={EBOOK_PDF} variant="primary" download prefetch={false}>
                 <Download className="size-4" aria-hidden="true" />
                 무료로 전자책 받기
               </Button>
@@ -168,7 +168,7 @@ export default function EbookPage() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button href={EBOOK_PDF} variant="primary" download>
+            <Button href={EBOOK_PDF} variant="primary" download prefetch={false}>
               <Download className="size-4" aria-hidden="true" />
               무료로 전자책 받기
             </Button>
