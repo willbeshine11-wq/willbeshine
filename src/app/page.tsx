@@ -19,7 +19,6 @@ import {
 export default function Home() {
   const preview = portfolioItems.slice(0, 4);
   const [featuredService, ...restServices] = services;
-  const [featuredQuote, ...restQuotes] = testimonials;
 
   return (
     <>
@@ -290,40 +289,23 @@ export default function Home() {
           </h2>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            <figure className="flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.03] p-10 lg:col-span-2">
-              <Quote className="size-8 text-blue-400" aria-hidden="true" />
-              <blockquote className="mt-6 flex-1 text-base font-medium leading-relaxed text-white md:text-lg">
-                &ldquo;{featuredQuote.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-8 border-t border-white/10 pt-5 text-sm">
-                <span className="font-semibold text-white">
-                  {featuredQuote.author}
-                </span>
-                <span className="ml-2 text-ink-400">
-                  {featuredQuote.hospital}
-                </span>
-              </figcaption>
-            </figure>
-
-            <div className="flex flex-col gap-6">
-              {restQuotes.map((item) => (
-                <figure
-                  key={item.author}
-                  className="flex flex-1 flex-col rounded-xl border border-white/10 bg-white/[0.03] p-6"
-                >
-                  <Quote className="size-5 text-blue-400" aria-hidden="true" />
-                  <blockquote className="mt-4 flex-1 text-base font-medium leading-relaxed text-ink-200 md:text-lg">
-                    {item.quote}
-                  </blockquote>
-                  <figcaption className="mt-5 border-t border-white/10 pt-4 text-sm">
-                    <span className="font-semibold text-white">
-                      {item.author}
-                    </span>
-                    <span className="ml-2 text-ink-400">{item.hospital}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            {testimonials.map((item) => (
+              <figure
+                key={item.author}
+                className="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-8"
+              >
+                <Quote className="size-6 text-blue-400" aria-hidden="true" />
+                <blockquote className="mt-5 flex-1 text-base leading-relaxed text-ink-200">
+                  {item.quote}
+                </blockquote>
+                <figcaption className="mt-6 border-t border-white/10 pt-4 text-base">
+                  <span className="font-semibold text-white">
+                    {item.author}
+                  </span>
+                  <span className="ml-2 text-ink-400">{item.hospital}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
