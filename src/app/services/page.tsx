@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "서비스 | 하이스타트",
   description:
     "브랜딩부터 퍼포먼스 마케팅, 의료광고 심의까지 하이스타트의 전 서비스를 확인하세요.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

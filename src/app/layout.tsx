@@ -13,9 +13,21 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://highstart.kr"),
   title: "하이스타트 | 병원 마케팅 전문 파트너",
   description:
     "하이스타트는 데이터 기반 전략과 선명한 브랜딩으로 병원의 신뢰와 성장을 함께 설계하는 병원 마케팅 전문 파트너입니다.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: "/",
+    siteName: "하이스타트",
+    title: "하이스타트 | 병원 마케팅 전문 파트너",
+    description:
+      "데이터 기반 전략과 선명한 브랜딩으로 병원의 신뢰와 성장을 함께 설계합니다.",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

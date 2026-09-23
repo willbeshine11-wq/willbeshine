@@ -26,6 +26,7 @@ export default function FloatingContactBar() {
           : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >
+      {contactInfo.kakaoChannelUrl && (
       <a
         href={contactInfo.kakaoChannelUrl}
         target="_blank"
@@ -35,6 +36,7 @@ export default function FloatingContactBar() {
         <MessageCircle className="size-4.5" aria-hidden="true" />
         카카오톡 상담하기
       </a>
+      )}
       <a
         href={telHref}
         className="flex items-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-graphite-950/15 transition-transform hover:scale-105 hover:bg-blue-400"

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "브랜드 전략 & 아이덴티티 | 하이스타트",
   description:
     "병원의 진료 철학과 강점을 진단해, 환자가 신뢰할 수 있는 브랜드 언어와 비주얼 시스템으로 설계합니다.",
+  alternates: { canonical: "/services/branding" },
 };
 
 const modules = [

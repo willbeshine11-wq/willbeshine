@@ -8,6 +8,7 @@ import { contactInfo } from "@/lib/data";
 export const metadata: Metadata = {
   title: "문의하기 | 하이스타트",
   description: "하이스타트에 무료 마케팅 진단과 상담을 신청해 보세요.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

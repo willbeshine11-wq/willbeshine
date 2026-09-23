@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "무료 전자책 | 하이스타트",
   description:
     "무자본으로 병원 마케팅을 시작해 대표 키워드 첫 페이지 노출까지 이끈 실전 노하우를 담은 무료 전자책을 받아보세요.",
+  alternates: { canonical: "/ebook" },
 };
 
 const EBOOK_PDF = "/ebook-hospital-marketing.pdf";

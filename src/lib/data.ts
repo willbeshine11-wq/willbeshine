@@ -292,8 +292,8 @@ export const contactInfo = {
   email: "contact@histart.co.kr",
   address: "경상남도 양산시 물금읍 범어로 33",
   hours: "평일 09:00 – 18:00 (주말 · 공휴일 휴무)",
-  // TODO: 실제 카카오톡 채널 URL로 교체해주세요 (pf.kakao.com/_실제채널ID)
-  kakaoChannelUrl: "https://pf.kakao.com/_xxxxxxx",
+  // TODO: 카카오톡 채널 개설 후 URL 입력 (예: https://pf.kakao.com/_채널ID). 비어 있으면 상담 버튼이 숨겨집니다.
+  kakaoChannelUrl: "",
 };
 
 export const ebookStats = [

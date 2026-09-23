@@ -9,10 +9,12 @@ type Errors = Partial<Record<"name" | "hospital" | "phone" | "email" | "message"
 export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
   const successRef = useRef<HTMLDivElement>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const nextErrors: Errors = {};
@@ -40,14 +42,33 @@ export default function ContactForm() {
     }
 
     setErrors(nextErrors);
+    setSubmitError(null);
 
     if (Object.keys(nextErrors).length > 0) {
       requestAnimationFrame(() => summaryRef.current?.focus());
       return;
     }
 
-    setSubmitted(true);
-    requestAnimationFrame(() => successRef.current?.focus());
+    setPending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(form)),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "문의 전송에 실패했습니다.");
+      }
+      setSubmitted(true);
+      requestAnimationFrame(() => successRef.current?.focus());
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error ? err.message : "문의 전송에 실패했습니다.",
+      );
+    } finally {
+      setPending(false);
+    }
   }
 
   if (submitted) {
@@ -95,6 +116,15 @@ export default function ContactForm() {
           </ul>
         </div>
       )}
+
+      {submitError && (
+        <div role="alert" className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {submitError}
+        </div>
+      )}
+
+      {/* honeypot: hidden from people, filled by bots */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Field
@@ -190,9 +220,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center rounded-md bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:w-auto"
+        disabled={pending}
+        className="inline-flex w-full items-center justify-center rounded-md bg-blue-500 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:cursor-wait disabled:opacity-60 sm:w-auto"
       >
-        문의 보내기
+        {pending ? "보내는 중…" : "문의 보내기"}
       </button>
     </form>
   );

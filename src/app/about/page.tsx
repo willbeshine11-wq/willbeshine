@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "회사소개 | 하이스타트",
   description:
     "하이스타트의 미션과 핵심 가치, 15년간의 여정을 소개합니다.",
+  alternates: { canonical: "/about" },
 };
 
 const teams = [

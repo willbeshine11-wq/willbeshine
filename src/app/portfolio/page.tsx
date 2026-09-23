@@ -7,6 +7,7 @@ import { portfolioItems } from "@/lib/data";
 export const metadata: Metadata = {
   title: "포트폴리오 | 하이스타트",
   description: "진료과별 하이스타트의 마케팅 성공사례를 확인하세요.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {
