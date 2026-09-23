@@ -101,3 +101,11 @@ body {
     padding-inline: 2.5rem;
   }
 }
+
+/* Korean headings wrap between words, not mid-word */
+h1,
+h2,
+h3 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
